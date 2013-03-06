@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hee-Dm-lF5">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="AMViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6JW-rY-sfR">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="7Ak-3E-FXj"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="x1C-x8-ZAf"/>
+                                    <outlet property="delegate" destination="2" id="TiU-bG-yQL"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for schools" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hka-s7-qwL">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <action selector="charactersChanged:" destination="2" eventType="editingChanged" id="fvV-z3-jbh"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VG-YU-fRK">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Favorite this school">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="favoriteThisSchool:" destination="2" eventType="touchUpInside" id="mAG-pD-0aT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6JW-rY-sfR" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="2qa-bI-DS0"/>
+                            <constraint firstAttribute="trailing" secondItem="hka-s7-qwL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="FtT-YN-kki"/>
+                            <constraint firstItem="hka-s7-qwL" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="I83-Y9-wwP"/>
+                            <constraint firstItem="7VG-YU-fRK" firstAttribute="top" secondItem="6JW-rY-sfR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="drL-kW-wTU"/>
+                            <constraint firstItem="6JW-rY-sfR" firstAttribute="top" secondItem="hka-s7-qwL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fFo-gR-ZKS"/>
+                            <constraint firstItem="7VG-YU-fRK" firstAttribute="centerX" secondItem="6JW-rY-sfR" secondAttribute="centerX" type="default" id="jCk-Xw-xwF"/>
+                            <constraint firstItem="6JW-rY-sfR" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="kVH-e8-j7H"/>
+                            <constraint firstItem="hka-s7-qwL" firstAttribute="top" secondItem="3" secondAttribute="top" constant="81" id="rDu-AO-P7i"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4Mz-SH-ppn">
+                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="eSO-32-A1G">
+                            <connections>
+                                <segue destination="3p2-uO-a9u" kind="push" id="I8r-QW-W9c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="picker" destination="6JW-rY-sfR" id="4WR-ZD-J3p"/>
+                        <outlet property="searchTextField" destination="hka-s7-qwL" id="Yoa-c7-JXs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189" y="-90"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="aqR-ab-1FZ">
+            <objects>
+                <tableViewController id="3p2-uO-a9u" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ur2-SA-pam">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" id="wVg-JB-TvV" customClass="AMFavoritesTableViewController">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3p2-uO-a9u" id="dc8-uf-6g6"/>
+                            <outlet property="delegate" destination="3p2-uO-a9u" id="mxh-QD-0jC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="8LQ-TI-yPN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqp-D9-oIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="561" y="-90"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Jpu-I6-Qdg">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="hee-Dm-lF5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RfF-ga-d5m">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="bwb-YX-Fi0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bne-G4-fex" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220" y="-90"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="AMViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AMViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="charactersChanged:" candidateClass="UITextField"/>
+                <relationship kind="action" name="favoriteThisSchool:"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
